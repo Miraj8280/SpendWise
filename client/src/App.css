@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root{
+  --color-purple: #9d4edd;
+  --color-yellow: #f9c74f;
+}
+
+* > *{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  padding: 2em 0;
+  text-align: center;
+}
+
+.bg-purple{
+  background-color: var(--color-purple);
+}
+
+.bg-yellow{
+  background-color: var(--color-yellow);
+}
+
+.chart .title{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+/* footer */
+.heart-color {
+  color: #ff69b4; 
+}
+
+.name {
+  transition: all 0.3s ease-in-out;
+}
+
+.name:hover {
+  color: #f77eac;
+  transform: translateY(-3px);
+}
+
+
+
+
+.form-input{
+  @apply mt-1 block w-full py-2 px-3 border rounded-md shadow-md focus:outline-none focus:ring-indigo-500 sm:text-sm
+}
