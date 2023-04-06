@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <div className="container mx-auto max-w-6xl text-center drop-shadow-lg text-gray-800">
-        <h1 className="text-4xl py-4 mb-8 bg-slate-800 text-white rounded-lg md:rounded-xl">SpendWise</h1>
+        <h1 className="text-4xl py-4 ml-4 mb-8 bg-slate-800 text-white rounded-lg md:rounded-xl">SpendWise</h1>
          <p className="text-md mb-4 text-gray-600 font-medium tracking-wider animated fadeIn">- Track Your Expenses -</p>
       </div>
 

@@ -16,8 +16,10 @@ const transactionsModel = new Schema({
     name: {type: String, default: "Anonymous"},
     type: {type: String, default: "Expense"},
     amount: {type: Number},
-    date: {type: Date, default: Date.now}
+    date: {type: Date, default: Date.now}  
 })
+
+
 
 const Categories = mongoose.model('categories', categoriesModel);
 const Transactions = mongoose.model('transactions', transactionsModel);
