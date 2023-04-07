@@ -59,8 +59,6 @@ export function chartData(transaction, custom) {
       return custom ?? config;
 }
 
-
-/*
 export function getCurrentAmount(transaction) {
   let amountSum = getSum(transaction, 'type');
 
@@ -81,18 +79,8 @@ export function getCurrentAmount(transaction) {
   }
   return currentAmount;
 }
-*/
-export function getCurrentAmount(transactions) {
-  let balance = 0;
-  transactions.forEach(transaction => {
-    if (transaction.type === 'Savings') {
-      balance += transaction.amount;
-    } else if (transaction.type === 'Expense' || transaction.type === 'Lends') {
-      balance -= transaction.amount;
-    }
-  });
-  return balance;
-}
+
+
 
 
 
