@@ -60,6 +60,7 @@ export function chartData(transaction, custom) {
 }
 
 
+/*
 export function getCurrentAmount(transaction) {
   let amountSum = getSum(transaction, 'type');
 
@@ -80,23 +81,28 @@ export function getCurrentAmount(transaction) {
   }
   return currentAmount;
 }
+*/
 
+export function getCurrentAmount(transaction, deletedType) {
+  let amountSum = getSum(transaction, 'type');
 
-/*
-export function getCurrentAmount(transaction, deletedTransactionId) {
-  // remove the deleted transaction from the transaction array
-  if (deletedTransactionId) {
-    transaction = transaction.filter((t) => t.id !== deletedTransactionId);
+  let savingsObj = _.find(amountSum, {'type': 'Savings'});
+  let expenseObj = _.find(amountSum, {'type': 'Expense'});
+  let lendsObj = _.find(amountSum, {'type': 'Lends'});
+
+  let savingsAmount = savingsObj ? savingsObj.total : 0;
+  let expenseAmount = expenseObj ? expenseObj.total : 0;
+  let lendsAmount = lendsObj ? lendsObj.total : 0;
+
+  if (deletedType === "Expense") {
+    expenseAmount = 0;
   }
 
-  // calculate the new current balance
-  const expenseTransactions = transaction.filter((t) => t.type === 'Expense');
-  const expenseAmount = expenseTransactions.reduce((total, t) => total + t.amount, 0);
-
-  const savingsTransactions = transaction.filter((t) => t.type === 'Savings');
-  const savingsAmount = savingsTransactions.reduce((total, t) => total + t.amount, 0);
-
-  let currentAmount = savingsAmount - expenseAmount;
+  // current amount
+  let currentAmount = savingsAmount - expenseAmount - lendsAmount;
+  if (!expenseAmount) {
+    currentAmount = savingsAmount - lendsAmount;
+  }
 
   if (currentAmount <= 0) {
     currentAmount = 0;
@@ -104,5 +110,6 @@ export function getCurrentAmount(transaction, deletedTransactionId) {
 
   return currentAmount;
 }
-*/
+
+
 
