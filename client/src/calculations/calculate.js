@@ -82,34 +82,18 @@ export function getCurrentAmount(transaction) {
   return currentAmount;
 }
 */
-
-export function getCurrentAmount(transaction, deletedType) {
-  let amountSum = getSum(transaction, 'type');
-
-  let savingsObj = _.find(amountSum, {'type': 'Savings'});
-  let expenseObj = _.find(amountSum, {'type': 'Expense'});
-  let lendsObj = _.find(amountSum, {'type': 'Lends'});
-
-  let savingsAmount = savingsObj ? savingsObj.total : 0;
-  let expenseAmount = expenseObj ? expenseObj.total : 0;
-  let lendsAmount = lendsObj ? lendsObj.total : 0;
-
-  if (deletedType === "Expense") {
-    expenseAmount = 0;
-  }
-
-  // current amount
-  let currentAmount = savingsAmount - expenseAmount - lendsAmount;
-  if (!expenseAmount) {
-    currentAmount = savingsAmount - lendsAmount;
-  }
-
-  if (currentAmount <= 0) {
-    currentAmount = 0;
-  }
-
-  return currentAmount;
+export function getCurrentAmount(transactions) {
+  let balance = 0;
+  transactions.forEach(transaction => {
+    if (transaction.type === 'Savings') {
+      balance += transaction.amount;
+    } else if (transaction.type === 'Expense' || transaction.type === 'Lends') {
+      balance -= transaction.amount;
+    }
+  });
+  return balance;
 }
+
 
 
 
