@@ -60,7 +60,6 @@ export function chartData(transaction, custom) {
 }
 
 
-/*
 export function getCurrentAmount(transaction) {
   let amountSum = getSum(transaction, 'type');
 
@@ -81,8 +80,9 @@ export function getCurrentAmount(transaction) {
   }
   return currentAmount;
 }
-*/
 
+
+/*
 export function getCurrentAmount(transaction, deletedTransactionId) {
   // remove the deleted transaction from the transaction array
   if (deletedTransactionId) {
@@ -104,4 +104,5 @@ export function getCurrentAmount(transaction, deletedTransactionId) {
 
   return currentAmount;
 }
+*/
 
