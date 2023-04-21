@@ -6,7 +6,7 @@ function Footer() {
       Made with
       <span className="inline-block relative">
         <span className="animate-pulse absolute h-full w-full top-0 left-0 transform scale-150 heart-color"> &#10084; </span>
-        <span className="relative ml-2 mr-2">❤</span>
+        <span className="relative ml-2 mr-2">💚</span>
       </span>
        by <span className="name inline-block relative text-blue-500">Miraj Asraf</span>
     </footer>
